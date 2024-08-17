@@ -11,7 +11,7 @@ const testimonials = [
   {
     name: 'Michael Chen',
     role: 'Frontend Developer at Facebook',
-    content: 'I can't thank PrepWise.AI enough. The personalized learning path and real-time feedback on my coding solutions were game-changers in my interview prep.',
+    content: "I can't thank PrepWise.AI enough. The personalized learning path and real-time feedback on my coding solutions were game-changers in my interview prep.",
     avatar: '/images/avatar2.jpg'
   },
   {
