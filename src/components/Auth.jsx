@@ -17,15 +17,7 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
     e.preventDefault();
     try {
       // Simulating an API call
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          if (email && password) {
-            resolve();
-          } else {
-            reject(new Error('Invalid credentials'));
-          }
-        }, 1000);
-      });
+      await new Promise(resolve => setTimeout(resolve, 1000));
       setIsLoggedIn(true);
       setUsername(email.split('@')[0]);
       navigate('/');
@@ -40,15 +32,7 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
     e.preventDefault();
     try {
       // Simulating an API call
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          if (name && email && password) {
-            resolve();
-          } else {
-            reject(new Error('Invalid signup data'));
-          }
-        }, 1000);
-      });
+      await new Promise(resolve => setTimeout(resolve, 1000));
       setIsLoggedIn(true);
       setUsername(name.split(' ')[0]);
       navigate('/');
