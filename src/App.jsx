@@ -14,12 +14,6 @@ const queryClient = new QueryClient({
       retry: false,
       refetchOnWindowFocus: false,
     },
-    mutations: {
-      onError: (error) => {
-        console.error('Mutation error:', error);
-        // You can add global error handling here if needed
-      },
-    },
   },
 });
 
