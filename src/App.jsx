@@ -2,42 +2,23 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import Navbar from "./components/Navbar";
-import Index from "./pages/Index";
-import Auth from "./pages/Auth";
+import { navItems } from "./nav-items";
 
 const queryClient = new QueryClient();
 
-const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <BrowserRouter>
-          <Navbar isLoggedIn={isLoggedIn} username={username} />
-          <Routes>
-            <Route
-              path="/"
-              element={<Index />}
-            />
-            <Route
-              path="/auth"
-              element={
-                <Auth
-                  setIsLoggedIn={setIsLoggedIn}
-                  setUsername={setUsername}
-                />
-              }
-            />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-};
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <BrowserRouter>
+        <Routes>
+          {navItems.map(({ to, page }) => (
+            <Route key={to} path={to} element={page} />
+          ))}
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;
