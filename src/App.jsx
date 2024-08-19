@@ -8,7 +8,14 @@ import Navbar from "./components/Navbar";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
