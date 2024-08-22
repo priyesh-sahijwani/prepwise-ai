@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 const Auth = ({ setIsLoggedIn, setUsername }) => {
   const navigate = useNavigate();
@@ -12,20 +13,32 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Implement actual login logic here
-    setIsLoggedIn(true);
-    setUsername(email.split('@')[0]);
-    navigate('/');
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setIsLoggedIn(true);
+      setUsername(email.split('@')[0]);
+      toast.success('Logged in successfully');
+      navigate('/');
+    } catch (error) {
+      toast.error('Login failed. Please try again.');
+    }
   };
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    // Implement actual signup logic here
-    setIsLoggedIn(true);
-    setUsername(name.split(' ')[0]);
-    navigate('/');
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setIsLoggedIn(true);
+      setUsername(name.split(' ')[0]);
+      toast.success('Account created successfully');
+      navigate('/');
+    } catch (error) {
+      toast.error('Signup failed. Please try again.');
+    }
   };
 
   return (

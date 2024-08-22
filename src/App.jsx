@@ -6,7 +6,14 @@ import { useState } from "react";
 import { navItems } from "./nav-items";
 import Navbar from "./components/Navbar";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
