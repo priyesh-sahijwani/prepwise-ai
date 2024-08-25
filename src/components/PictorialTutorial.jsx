@@ -2,36 +2,40 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+
 const tutorialSteps = [
   {
     title: "Sign Up",
     description: "Create your account to get started with PrepWise.AI. Our simple sign-up process takes just a few minutes, allowing you to dive into interview preparation quickly and efficiently.",
-    imageSrc: "/images/signup-form.jpg",
-    altText: "A user filling out a signup form on a laptop"
+    imageSrc: "https://placehold.co/600x400/png?text=Sign+Up&font=roboto",
+    altText: "Sign Up process illustration"
   },
   {
     title: "Choose Your Path",
     description: "Select your desired tech role and skill level. PrepWise.AI tailors your learning experience based on your specific career goals and current expertise, ensuring a personalized preparation journey.",
-    imageSrc: "/images/career-path-selection.jpg",
-    altText: "A person selecting from various tech career paths on a tablet"
+    imageSrc: "https://placehold.co/600x400/png?text=Choose+Your+Path&font=roboto",
+    altText: "Career path selection illustration"
   },
   {
     title: "Practice Coding",
     description: "Solve AI-generated coding challenges tailored to your needs. Our platform provides a wide range of problems, from basic algorithms to complex system designs, all customized to match your target role and company.",
-    imageSrc: "/images/coding-practice.jpg",
-    altText: "A developer solving coding challenges on a computer"
+    imageSrc: "https://placehold.co/600x400/png?text=Practice+Coding&font=roboto",
+    altText: "Coding practice illustration"
   },
   {
     title: "Mock Interviews",
     description: "Participate in AI-powered mock interviews to hone your skills. Experience realistic interview scenarios that simulate the pressure and expectations of actual tech interviews, helping you build confidence and improve your performance.",
-    imageSrc: "/images/virtual-interview.jpg",
-    altText: "A person participating in a virtual mock interview"
+    imageSrc: "https://placehold.co/600x400/png?text=Mock+Interviews&font=roboto",
+    altText: "Mock interview illustration"
   },
   {
     title: "Track Progress",
     description: "Monitor your improvement and receive personalized recommendations. Our advanced analytics provide insights into your strengths and areas for improvement, guiding your preparation strategy for optimal results.",
-    imageSrc: "/images/progress-dashboard.jpg",
-    altText: "A user reviewing their progress on an analytics dashboard"
+    imageSrc: "https://placehold.co/600x400/png?text=Track+Progress&font=roboto",
+    altText: "Progress tracking illustration"
   }
 ];
 
@@ -52,10 +56,10 @@ const PictorialTutorial = () => {
           >
             <div className="w-full md:w-1/2 mb-8 md:mb-0">
               <img 
-  src={step.imageSrc} 
-  alt={step.altText} 
-  className="w-full h-auto object-cover rounded-lg shadow-lg" 
-/>
+                src={step.imageSrc} 
+                alt={step.altText} 
+                className="w-full h-auto object-cover rounded-lg shadow-lg" 
+              />
             </div>
             <div className="w-full md:w-1/2 md:px-8">
               <h3 className="text-2xl font-semibold mb-4">{step.title}</h3>
@@ -68,5 +72,7 @@ const PictorialTutorial = () => {
     </section>
   );
 };
+
+export default PictorialTutorial;
 
 export default PictorialTutorial;
