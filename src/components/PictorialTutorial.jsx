@@ -6,27 +6,32 @@ const tutorialSteps = [
   {
     title: "Sign Up",
     description: "Create your account to get started with PrepWise.AI. Our simple sign-up process takes just a few minutes, allowing you to dive into interview preparation quickly and efficiently.",
-    imageSrc: "/images/signup.png"
+    imageSrc: "/images/signup-form.jpg",
+    altText: "A user filling out a signup form on a laptop"
   },
   {
     title: "Choose Your Path",
     description: "Select your desired tech role and skill level. PrepWise.AI tailors your learning experience based on your specific career goals and current expertise, ensuring a personalized preparation journey.",
-    imageSrc: "/images/choose-path.png"
+    imageSrc: "/images/career-path-selection.jpg",
+    altText: "A person selecting from various tech career paths on a tablet"
   },
   {
     title: "Practice Coding",
     description: "Solve AI-generated coding challenges tailored to your needs. Our platform provides a wide range of problems, from basic algorithms to complex system designs, all customized to match your target role and company.",
-    imageSrc: "/images/practice-coding.png"
+    imageSrc: "/images/coding-practice.jpg",
+    altText: "A developer solving coding challenges on a computer"
   },
   {
     title: "Mock Interviews",
     description: "Participate in AI-powered mock interviews to hone your skills. Experience realistic interview scenarios that simulate the pressure and expectations of actual tech interviews, helping you build confidence and improve your performance.",
-    imageSrc: "/images/mock-interview.png"
+    imageSrc: "/images/virtual-interview.jpg",
+    altText: "A person participating in a virtual mock interview"
   },
   {
     title: "Track Progress",
     description: "Monitor your improvement and receive personalized recommendations. Our advanced analytics provide insights into your strengths and areas for improvement, guiding your preparation strategy for optimal results.",
-    imageSrc: "/images/track-progress.png"
+    imageSrc: "/images/progress-dashboard.jpg",
+    altText: "A user reviewing their progress on an analytics dashboard"
   }
 ];
 
@@ -46,7 +51,11 @@ const PictorialTutorial = () => {
             }`}
           >
             <div className="w-full md:w-1/2 mb-8 md:mb-0">
-              <img src={step.imageSrc} alt={step.title} className="w-full h-auto object-cover rounded-lg shadow-lg" />
+              <img 
+  src={step.imageSrc} 
+  alt={step.altText} 
+  className="w-full h-auto object-cover rounded-lg shadow-lg" 
+/>
             </div>
             <div className="w-full md:w-1/2 md:px-8">
               <h3 className="text-2xl font-semibold mb-4">{step.title}</h3>
