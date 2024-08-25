@@ -5,37 +5,37 @@ const testimonials = [
   {
     name: 'Sarah Johnson',
     role: 'Software Engineer at Google',
-    content: 'PrepWise.AI helped me ace my Google interview. The AI-generated challenges were spot-on, and the mock interviews boosted my confidence tremendously.',
+    content: `PrepWise.AI helped me ace my Google interview. The AI-generated challenges were spot-on, and the mock interviews boosted my confidence tremendously.`,
     avatar: 'https://randomuser.me/api/portraits/women/1.jpg'
   },
   {
     name: 'Michael Chen',
     role: 'Frontend Developer at Facebook',
-    content: "I can't thank PrepWise.AI enough. The personalized learning path and real-time feedback on my coding solutions were game-changers in my interview prep.",
+    content: `I can't thank PrepWise.AI enough. The personalized learning path and real-time feedback on my coding solutions were game-changers in my interview prep.`,
     avatar: 'https://randomuser.me/api/portraits/men/2.jpg'
   },
   {
     name: 'Emily Rodriguez',
     role: 'Data Scientist at Amazon',
-    content: 'The AI interviewer in PrepWise.AI is incredibly realistic. It helped me identify my weak areas and improve rapidly. I landed my dream job thanks to this platform!',
+    content: `The AI interviewer in PrepWise.AI is incredibly realistic. It helped me identify my weak areas and improve rapidly. I landed my dream job thanks to this platform!`,
     avatar: 'https://randomuser.me/api/portraits/women/3.jpg'
   },
   {
     name: 'Alex Thompson',
     role: 'Backend Developer at Microsoft',
-    content: 'PrepWise.AI's comprehensive coverage of data structures and algorithms was instrumental in my interview success. Highly recommended!',
+    content: `PrepWise.AI's comprehensive coverage of data structures and algorithms was instrumental in my interview success. Highly recommended!`,
     avatar: 'https://randomuser.me/api/portraits/men/4.jpg'
   },
   {
     name: 'Olivia Wang',
     role: 'Full Stack Developer at Netflix',
-    content: 'The platform's adaptive learning system helped me focus on my weak areas. It's like having a personal interview coach available 24/7.',
+    content: `The platform's adaptive learning system helped me focus on my weak areas. It's like having a personal interview coach available 24/7.`,
     avatar: 'https://randomuser.me/api/portraits/women/5.jpg'
   },
   {
     name: 'David Kim',
     role: 'Mobile Developer at Uber',
-    content: 'PrepWise.AI's mock interviews are incredibly realistic. They helped me overcome my interview anxiety and perform confidently.',
+    content: `PrepWise.AI's mock interviews are incredibly realistic. They helped me overcome my interview anxiety and perform confidently.`,
     avatar: 'https://randomuser.me/api/portraits/men/6.jpg'
   }
 ];
