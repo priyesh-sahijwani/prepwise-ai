@@ -16,6 +16,9 @@ const Navbar = ({ isLoggedIn, username }) => {
               <Link to="/dashboard" className="text-gray-600 hover:text-primary">
                 Dashboard
               </Link>
+              <Link to="/profile" className="text-gray-600 hover:text-primary">
+                Profile
+              </Link>
               <ProfileDropdown username={username} />
             </>
           ) : (

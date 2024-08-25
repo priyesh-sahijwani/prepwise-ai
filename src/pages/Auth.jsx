@@ -31,7 +31,7 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
       setIsLoggedIn(true);
       setUsername(email.split('@')[0]);
       toast.success('Logged in successfully');
-      navigate('/');
+      navigate('/profile');
     } catch (error) {
       console.error('Login error:', error);
       toast.error(error.message || 'Login failed. Please try again.');
@@ -57,7 +57,7 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
       setIsLoggedIn(true);
       setUsername(name.split(' ')[0]);
       toast.success('Account created successfully');
-      navigate('/');
+      navigate('/profile');
     } catch (error) {
       console.error('Signup error:', error);
       toast.error(error.message || 'Signup failed. Please try again.');

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { navItems } from "./nav-items";
 import Navbar from "./components/Navbar";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,6 +39,10 @@ const App = () => {
                 }
               />
             ))}
+            <Route
+              path="/profile"
+              element={<Profile username={username} />}
+            />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
