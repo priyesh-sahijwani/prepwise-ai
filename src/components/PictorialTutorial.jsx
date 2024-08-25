@@ -70,5 +70,3 @@ const PictorialTutorial = () => {
 };
 
 export default PictorialTutorial;
-
-export default PictorialTutorial;
