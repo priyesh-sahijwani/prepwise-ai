@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Fire } from 'lucide-react';
+import Fire from 'lucide-react/dist/esm/icons/flame';
 
 const mockData = {
   progress: 65,
@@ -76,7 +76,7 @@ const Profile = ({ username }) => {
             <CardTitle>Current Streak</CardTitle>
           </CardHeader>
           <CardContent className="flex items-center justify-center">
-            <Fire className="text-orange-500 mr-2" size={32} />
+            <Fire className="text-orange-500 mr-2" size={32} strokeWidth={2} />
             <p className="text-4xl font-bold">{mockData.streak} days</p>
           </CardContent>
         </Card>
