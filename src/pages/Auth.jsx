@@ -12,32 +12,57 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (email && password) {
+            resolve();
+          } else {
+            reject(new Error('Invalid email or password'));
+          }
+        }, 1000);
+      });
       setIsLoggedIn(true);
       setUsername(email.split('@')[0]);
       toast.success('Logged in successfully');
       navigate('/');
     } catch (error) {
-      toast.error('Login failed. Please try again.');
+      console.error('Login error:', error);
+      toast.error(error.message || 'Login failed. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (name && email && password) {
+            resolve();
+          } else {
+            reject(new Error('Please fill in all fields'));
+          }
+        }, 1000);
+      });
       setIsLoggedIn(true);
       setUsername(name.split(' ')[0]);
       toast.success('Account created successfully');
       navigate('/');
     } catch (error) {
-      toast.error('Signup failed. Please try again.');
+      console.error('Signup error:', error);
+      toast.error(error.message || 'Signup failed. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -79,7 +104,9 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
                   required
                 />
               </div>
-              <Button type="submit" className="w-full">Login</Button>
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? 'Logging in...' : 'Login'}
+              </Button>
             </form>
           </TabsContent>
           <TabsContent value="signup">
@@ -117,7 +144,9 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
                   required
                 />
               </div>
-              <Button type="submit" className="w-full">Sign Up</Button>
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? 'Signing up...' : 'Sign Up'}
+              </Button>
             </form>
           </TabsContent>
         </Tabs>
