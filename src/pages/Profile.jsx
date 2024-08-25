@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Fire } from 'lucide-react';
 
 const mockData = {
   progress: 65,
@@ -18,6 +19,8 @@ const mockData = {
     { day: 'Sat', hours: 4 },
     { day: 'Sun', hours: 2 },
   ],
+  questionsSolved: 157,
+  streak: 12,
 };
 
 const Profile = ({ username }) => {
@@ -56,6 +59,25 @@ const Profile = ({ username }) => {
           </CardHeader>
           <CardContent>
             <p className="text-4xl font-bold text-center">{mockData.interviewsPracticed}</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Questions Solved</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-4xl font-bold text-center">{mockData.questionsSolved}</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Current Streak</CardTitle>
+          </CardHeader>
+          <CardContent className="flex items-center justify-center">
+            <Fire className="text-orange-500 mr-2" size={32} />
+            <p className="text-4xl font-bold">{mockData.streak} days</p>
           </CardContent>
         </Card>
       </div>
