@@ -2,7 +2,7 @@
 
 ## Project info
 
-**Project**: prepwise-journey 
+**Project**: prepwise-ai
 
 **URL**: https://run.gptengineer.app/projects/bb2a95c2-8e96-47e6-a7bc-d584cb19eb30/improve
 
