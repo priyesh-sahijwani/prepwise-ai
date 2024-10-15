@@ -11,12 +11,12 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useNavigate } from 'react-router-dom';
 
-const ProfileDropdown = ({ username }) => {
+const ProfileDropdown = ({ username, onLogout }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleLogout = () => {
-    // Implement logout logic here
+    onLogout();
     navigate('/');
   };
 

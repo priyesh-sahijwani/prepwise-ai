@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import ProfileDropdown from './ProfileDropdown';
 
-const Navbar = ({ isLoggedIn, username }) => {
+const Navbar = ({ isLoggedIn, username, setIsLoggedIn }) => {
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    // You might want to clear any user-related data from local storage or state here
+  };
+
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -19,7 +24,7 @@ const Navbar = ({ isLoggedIn, username }) => {
               <Link to="/profile" className="text-gray-600 hover:text-primary">
                 Profile
               </Link>
-              <ProfileDropdown username={username} />
+              <ProfileDropdown username={username} onLogout={handleLogout} />
             </>
           ) : (
             <Link to="/auth">

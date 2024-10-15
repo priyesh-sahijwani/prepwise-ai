@@ -14,53 +14,27 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
   const [name, setName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleAuth = async (e, isLogin) => {
     e.preventDefault();
     setIsLoading(true);
     try {
       // Simulate API call
       await new Promise((resolve, reject) => {
         setTimeout(() => {
-          if (email && password) {
+          if (isLogin ? (email && password) : (name && email && password)) {
             resolve();
           } else {
-            reject(new Error('Invalid email or password'));
+            reject(new Error(isLogin ? 'Invalid email or password' : 'Please fill in all fields'));
           }
         }, 1000);
       });
       setIsLoggedIn(true);
-      setUsername(email.split('@')[0]);
-      toast.success('Logged in successfully');
+      setUsername(isLogin ? email.split('@')[0] : name.split(' ')[0]);
+      toast.success(isLogin ? 'Logged in successfully' : 'Account created successfully');
       navigate('/profile');
     } catch (error) {
-      console.error('Login error:', error);
-      toast.error(error.message || 'Login failed. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleSignup = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      // Simulate API call
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          if (name && email && password) {
-            resolve();
-          } else {
-            reject(new Error('Please fill in all fields'));
-          }
-        }, 1000);
-      });
-      setIsLoggedIn(true);
-      setUsername(name.split(' ')[0]);
-      toast.success('Account created successfully');
-      navigate('/profile');
-    } catch (error) {
-      console.error('Signup error:', error);
-      toast.error(error.message || 'Signup failed. Please try again.');
+      console.error(isLogin ? 'Login error:' : 'Signup error:', error);
+      toast.error(error.message || `${isLogin ? 'Login' : 'Signup'} failed. Please try again.`);
     } finally {
       setIsLoading(false);
     }
@@ -72,16 +46,16 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
+        className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md"
       >
-        <h1 className="text-2xl font-bold text-center mb-6">Welcome to PrepWise.AI</h1>
+        <h1 className="text-3xl font-bold text-center mb-6 text-primary">Welcome to PrepWise.AI</h1>
         <Tabs defaultValue="login" className="w-full">
-          <TabsList className="grid w-full grid-cols-2">
+          <TabsList className="grid w-full grid-cols-2 mb-8">
             <TabsTrigger value="login">Login</TabsTrigger>
             <TabsTrigger value="signup">Sign Up</TabsTrigger>
           </TabsList>
           <TabsContent value="login">
-            <form onSubmit={handleLogin} className="space-y-4">
+            <form onSubmit={(e) => handleAuth(e, true)} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -110,7 +84,7 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
             </form>
           </TabsContent>
           <TabsContent value="signup">
-            <form onSubmit={handleSignup} className="space-y-4">
+            <form onSubmit={(e) => handleAuth(e, false)} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
                 <Input
