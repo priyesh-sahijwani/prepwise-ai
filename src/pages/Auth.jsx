@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
 // Simulated user database (in a real app, this would be on the server)
-const users = [
+let users = [
   { email: 'user@example.com', password: 'password123', name: 'John Doe' },
   { email: 'admin@example.com', password: 'admin123', name: 'Admin User' },
 ];
@@ -36,9 +36,14 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
           throw new Error('Invalid email or password');
         }
       } else {
-        // Signup logic (simplified for demonstration)
+        // Signup logic
         if (name && email && password) {
-          // In a real app, you'd add the new user to the database here
+          const existingUser = users.find(u => u.email === email);
+          if (existingUser) {
+            throw new Error('Email already exists');
+          }
+          // Add new user to the simulated database
+          users.push({ email, password, name });
           setIsLoggedIn(true);
           setUsername(name.split(' ')[0]);
           toast.success('Account created successfully');
@@ -142,6 +147,7 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
       </motion.div>
     </div>
   );
+
 };
 
 export default Auth;
