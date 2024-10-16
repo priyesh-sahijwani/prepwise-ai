@@ -25,7 +25,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <BrowserRouter>
-          <Navbar isLoggedIn={isLoggedIn} username={username} />
+          <Navbar isLoggedIn={isLoggedIn} username={username} setIsLoggedIn={setIsLoggedIn} />
           <Routes>
             {navItems.map(({ to, page: PageComponent }) => (
               <Route

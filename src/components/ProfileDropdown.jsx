@@ -17,7 +17,7 @@ const ProfileDropdown = ({ username, onLogout }) => {
 
   const handleLogout = () => {
     onLogout();
-    navigate('/');
+    setIsOpen(false);
   };
 
   return (

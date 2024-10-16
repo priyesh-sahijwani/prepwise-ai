@@ -1,12 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import ProfileDropdown from './ProfileDropdown';
 
 const Navbar = ({ isLoggedIn, username, setIsLoggedIn }) => {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     setIsLoggedIn(false);
-    // You might want to clear any user-related data from local storage or state here
+    navigate('/');
   };
 
   return (
