@@ -7,6 +7,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 
+// Simulated user database (in a real app, this would be on the server)
+const users = [
+  { email: 'user@example.com', password: 'password123', name: 'John Doe' },
+  { email: 'admin@example.com', password: 'admin123', name: 'Admin User' },
+];
+
 const Auth = ({ setIsLoggedIn, setUsername }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -18,20 +24,29 @@ const Auth = ({ setIsLoggedIn, setUsername }) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      // Simulate API call
-      await new Promise((resolve, reject) => {
-        setTimeout(() => {
-          if (isLogin ? (email && password) : (name && email && password)) {
-            resolve();
-          } else {
-            reject(new Error(isLogin ? 'Invalid email or password' : 'Please fill in all fields'));
-          }
-        }, 1000);
-      });
-      setIsLoggedIn(true);
-      setUsername(isLogin ? email.split('@')[0] : name.split(' ')[0]);
-      toast.success(isLogin ? 'Logged in successfully' : 'Account created successfully');
-      navigate('/profile');
+      if (isLogin) {
+        // Login logic
+        const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+          setIsLoggedIn(true);
+          setUsername(user.name.split(' ')[0]);
+          toast.success('Logged in successfully');
+          navigate('/profile');
+        } else {
+          throw new Error('Invalid email or password');
+        }
+      } else {
+        // Signup logic (simplified for demonstration)
+        if (name && email && password) {
+          // In a real app, you'd add the new user to the database here
+          setIsLoggedIn(true);
+          setUsername(name.split(' ')[0]);
+          toast.success('Account created successfully');
+          navigate('/profile');
+        } else {
+          throw new Error('Please fill in all fields');
+        }
+      }
     } catch (error) {
       console.error(isLogin ? 'Login error:' : 'Signup error:', error);
       toast.error(error.message || `${isLogin ? 'Login' : 'Signup'} failed. Please try again.`);
